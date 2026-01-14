@@ -26,11 +26,12 @@
       theme: {
         extend: {
           colors: {
-            primary: '#5aab32',
-            'primary-dark': '#4a9229',
-            secondary: '#475b3c',
+            primary: '#6B9E5A',
+            'primary-dark': '#5A8A4D',
+            'primary-light': '#8FB87F',
+            secondary: '#3D4F35',
             dark: '#212326',
-            light: '#f2f3f5',
+            light: '#f7f8f6',
           },
           fontFamily: {
             'heading': ['Lato', 'Arial', 'sans-serif'],
@@ -52,13 +53,19 @@
       font-family: 'Lato', Arial, sans-serif;
     }
     .fee-quote-btn {
-      background: linear-gradient(135deg, #5aab32 0%, #4a9229 100%);
+      background: linear-gradient(135deg, #6B9E5A 0%, #5A8A4D 100%);
       transition: all 0.3s ease;
-      box-shadow: 0 4px 14px rgba(90, 171, 50, 0.4);
+      box-shadow: 0 4px 14px rgba(107, 158, 90, 0.35);
     }
     .fee-quote-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(90, 171, 50, 0.5);
+      box-shadow: 0 6px 20px rgba(107, 158, 90, 0.45);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #f7f9f5 0%, #eef2eb 50%, #e8efe4 100%);
+    }
+    .hero-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236B9E5A' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
     .gradient-bg {
       background: linear-gradient(135deg, #f8faf6 0%, #f2f3f5 100%);
@@ -74,7 +81,18 @@
       -webkit-overflow-scrolling: touch;
     }
     .check-icon {
-      color: #5aab32;
+      color: #6B9E5A;
+    }
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+    .image-card img {
+      transition: transform 0.5s ease;
+    }
+    .image-card:hover img {
+      transform: scale(1.05);
     }
   </style>
 
@@ -116,7 +134,7 @@
       <div class="flex justify-between items-center h-16 md:h-20">
         <!-- Logo -->
         <a href="#hero" class="flex items-center">
-          <img src="https://lawvex.com/wp-content/uploads/2023/01/logo.png.webp" alt="Lawvex" class="h-10 md:h-12 w-auto">
+          <img src="https://lawvex.com/wp-content/uploads/2023/01/logo.png.webp" alt="Lawvex" class="h-5 md:h-6 w-auto">
         </a>
 
         <!-- CTA Button -->
@@ -128,40 +146,71 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="hero" class="pt-24 md:pt-32 pb-16 md:pb-24 gradient-bg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center">
-        <!-- Trust Badge -->
-        <div class="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 mb-6 card-shadow">
-          <div class="flex text-yellow-400">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+  <section id="hero" class="pt-24 md:pt-28 pb-16 md:pb-20 hero-gradient hero-pattern relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full -translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="text-center lg:text-left">
+          <!-- Trust Badge -->
+          <div class="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 mb-6 card-shadow">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="text-sm font-medium text-gray-700">4.8 rating from 235+ Google reviews</span>
           </div>
-          <span class="text-sm font-medium text-gray-700">4.8 rating from 235+ Google reviews</span>
+
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-secondary leading-tight mb-6 font-heading">
+            California Estate Planning for Families Who Want <span class="text-primary">Value, Convenience and Speed</span>
+          </h1>
+
+          <p class="text-xl md:text-2xl text-primary font-semibold mb-4 font-heading">Plan. Grow. Inherit.</p>
+
+          <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
+            A modern estate planning relationship for California families building generational wealth. We help you protect what you've built—and pass it on with clarity, control, and confidence.
+          </p>
+
+          <p class="text-base md:text-lg font-medium text-secondary/80 mb-8">
+            Estate planning is not about documents. It's about <span class="text-primary font-semibold">leadership, continuity, and stewardship</span> across generations.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="https://api.leadconnectorhq.com/widget/survey/Njimx5vtdwC8V7s3l5Pj" target="_blank" class="fee-quote-btn inline-flex items-center justify-center gap-2 text-white font-bold px-8 py-4 rounded-xl text-lg">
+              <span>Get a Free Quote</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+          <p class="text-sm text-gray-500 mt-3 text-center lg:text-left">Takes only 5 minutes • No obligation</p>
         </div>
 
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-secondary leading-tight mb-6 font-heading">
-          California Estate Planning for Families Who Want Value, Convenience and Speed
-        </h1>
-
-        <p class="text-lg md:text-xl text-primary font-semibold mb-4 font-heading">Plan. Grow. Inherit.</p>
-
-        <p class="text-base md:text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-          A modern estate planning relationship for California families building generational wealth. Lawvex helps families protect what they've built—and pass it on with clarity, control, and confidence.
-        </p>
-
-        <p class="text-lg md:text-xl font-medium text-secondary mb-8">
-          Estate planning is not about documents.<br class="hidden md:block"> It's about <span class="text-primary">leadership, continuity, and stewardship</span> across generations.
-        </p>
-
-        <a href="https://api.leadconnectorhq.com/widget/survey/Njimx5vtdwC8V7s3l5Pj" target="_blank" class="fee-quote-btn inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-xl text-lg">
-          <span>Get a Free Quote</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-        </a>
-        <p class="text-sm text-gray-500 mt-3">Takes only 5 minutes • No obligation</p>
+        <!-- Right Image Grid -->
+        <div class="hidden lg:block relative">
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Main Image - Multigenerational Family -->
+            <div class="col-span-2 image-card">
+              <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600&h=400&fit=crop" alt="Happy multigenerational family" class="w-full h-64 object-cover rounded-2xl shadow-lg">
+            </div>
+            <!-- Secondary Images -->
+            <div class="image-card">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&h=200&fit=crop" alt="California family home" class="w-full h-40 object-cover rounded-xl shadow-md">
+            </div>
+            <div class="image-card">
+              <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=300&h=200&fit=crop" alt="Family planning together" class="w-full h-40 object-cover rounded-xl shadow-md">
+            </div>
+          </div>
+          <!-- Stats Overlay -->
+          <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-lg">
+            <p class="text-2xl font-bold text-primary">5,000+</p>
+            <p class="text-sm text-gray-600">Families Protected</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -828,7 +877,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <div class="flex items-center justify-center mb-4">
-          <img src="https://lawvex.com/wp-content/uploads/2023/01/logo.png.webp" alt="Lawvex, LLP" class="h-12 w-auto brightness-0 invert">
+          <img src="https://lawvex.com/wp-content/uploads/2023/01/logo.png.webp" alt="Lawvex, LLP" class="h-7 w-auto brightness-0 invert">
         </div>
 
         <p class="text-gray-400 mb-2">California Estate Planning • Trust Administration • Wealth & Business Continuity</p>
